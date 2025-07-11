@@ -25,31 +25,32 @@ public class ManajemenItem {
                     System.out.println("3. Kurangi Stok Item");
                     System.out.println("4. Lihat Semua Item");
                     System.out.println("5. Keluar");
-                    System.out.print("Pilih menu : ");
+                    System.out.print("Pilih menu    : ");
                     int pilihan = input.nextInt();
                     input.nextLine();
+                    System.out.println("===============================");
 
                     switch (pilihan) {
                         case 1 -> {
-                            System.out.print("Id Item : ");
+                            System.out.print("Id Item       : ");
                             String id = input.nextLine();
-                            System.out.print("Nama Item : ");
+                            System.out.print("Nama Item     : ");
                             String nama = input.nextLine();
-                            System.out.print("Kategori : ");
+                            System.out.print("Kategori      : ");
                             String kategori = input.nextLine();
-                            System.out.print("Stok Awal : ");
+                            System.out.print("Stok Awal     : ");
                             int stok = input.nextInt();
                             input.nextLine();
-
+                            
                             manajer.tambahItem(new Item(id, nama, kategori, stok));
                         }
-
+                        
                         case 2 -> {
-                            System.out.print("Masukkan ID Item yang ingin ditambah stok: ");
+                            System.out.print("Masukkan ID Item yang ingin ditambah stok : ");
                             String idTambah = input.nextLine();
                             Item tambah = manajer.cariItemById(idTambah);
                             if (tambah != null) {
-                                System.out.print("Jumlah yang ingin ditambah : ");
+                                System.out.print("Jumlah yang ingin ditambah                : ");
                                 int jumlahTambah = input.nextInt();
                                 tambah.tambahStok(jumlahTambah);
                                 System.out.println("Stok berhasil ditambahkan.");
@@ -59,11 +60,11 @@ public class ManajemenItem {
                         }
 
                         case 3 -> {
-                            System.out.print("Masukkan ID Item yang ingin dikurangi stok: ");
+                            System.out.print("Masukkan ID Item yg ingin dikurangi stok  : ");
                             String idKurang = input.nextLine();
                             Item kurang = manajer.cariItemById(idKurang);
                             if (kurang != null) {
-                                System.out.print("Jumlah yang ingin dikurangi : ");
+                                System.out.print("Jumlah yang ingin dikurangi               : ");
                                 int jumlahKurang = input.nextInt();
                                 kurang.kurangiStok(jumlahKurang);
                                 System.out.println("Stok berhasil dikurangi.");
@@ -82,8 +83,10 @@ public class ManajemenItem {
                         default -> System.out.println("Pilihan tidak valid.");
                     }
 
+                    System.out.println("===============================");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
+                    System.out.println("===============================");
                     input.nextLine();
                 }
             }
@@ -115,7 +118,7 @@ public class ManajemenItem {
         if (jumlahItem <= 0) {
             System.out.println("Belum ada data Item.");
         } else {
-            System.out.println("Daftar Item");
+            System.out.println("======== Daftar Item ========");
             for (int i = 0; i < jumlahItem; i++) {
                 System.out.println(daftarItem[i].getInfo());
             }
