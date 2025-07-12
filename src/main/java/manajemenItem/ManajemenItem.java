@@ -42,7 +42,9 @@ public class ManajemenItem {
                             int stok = input.nextInt();
                             input.nextLine();
                             
-                            manajer.tambahItem(new Item(id, nama, kategori, stok));
+                            Item itemBaru = new Item(id, nama, kategori, stok);
+
+                            manajer.tambahItem(itemBaru);
                         }
                         
                         case 2 -> {
